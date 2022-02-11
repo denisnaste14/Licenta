@@ -35,6 +35,6 @@
 
 .btn--medium:hover, .btn--large:hover{
     background: var(--primary);
-    color: 202020;
+    color: 242424;
     transition:  all 0.3s ease-out;
 }
