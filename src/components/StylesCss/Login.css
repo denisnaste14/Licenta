@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
 .login{
-    display:block;
+    align-items:flex-end;
+    display:flex;
     position: absolute;
-    width: 30vw;
-    height: 40vh;
-    min-width: 300px;
-    min-height: 380px;
-    /* border: 1px solid black; */
+    width: 28vw;
+    height: 48vh;
+    min-width: 290px;
+    min-height: 400px;
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
 }
 
 .login-container{
+    background-color: #e9e9e9;
     box-shadow: rgba(50, 50, 62, 0.25) 0px 50px 100px -30px, rgba(0, 0, 0, 0.35) 0px 30px 60px -30px;
     width: 100%;
     height: 90%;
@@ -24,7 +25,73 @@
     font-family: 'Manrope', sans-serif;
     text-align: center;
     width: 100%;
-    height: 18%;
+    height: 30%;
     font-weight: 900;
-    font-size: calc(21px + 0.8vw + 1vh);
+    text-decoration: underline;
+    text-decoration-style:dotted;
+    text-decoration-color: rgba(0, 0, 0, 0.25);
+    font-size: calc(31px + 0.4vw + 0.5vh);
 }
+
+.login-title-text{
+    margin: 0;
+    padding: 0;
+}
+
+.login-bad-credentials{
+    height: 10%;
+}
+
+.login-form{
+    width: 100%;
+    height: 50%;
+    font-size: calc(7px + 0.4vw + 0.5vh);
+    font-family: 'Manrope', sans-serif;
+}
+
+.login-group{
+    padding-left: calc(19px + 1vw);
+    padding-bottom: calc(19px + 0.8vh);
+}
+
+.login-input{
+    border-width: 1px;
+    border-radius: 7px;
+    height: 20px;
+}
+
+.login-submit-btn{
+    text-align: center;
+}
+
+#login-submit{
+    font-family: 'Manrope', sans-serif;
+    font-size: calc(10px + 0.4vw + 0.5vh);
+    font-weight: 600;
+    border-width: 1px;
+    border-radius: 7px;
+    color: #343434;
+    background-color: white;
+}
+
+#login-submit:hover{
+    background-color: #343443;
+    color:white;
+}
+
+.login-forgot-password{
+    height: 10%;
+    margin-top: 12px;
+    text-align: center;
+    font-size: calc(7px + 0.3vw + 0.4vh);
+    font-style: italic;
+}
+
+.login-forgot-password:hover{
+    color:red;
+    cursor: pointer;
+}
+
+
+
+
