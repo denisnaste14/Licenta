@@ -1,5 +1,5 @@
 import React, {useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../components/FontawsomeIcons/Icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useAuth } from '../context/AuthContext'
@@ -57,7 +57,7 @@ function Login() {
                     </div>
                   </form>
                   <div className='login-forgot-password'>
-                      Forgot password?
+                      <Link to='/forgot-password' className='login-forgot-password'>Forgot password?</Link>
                   </div>
                 </div>
             </div>

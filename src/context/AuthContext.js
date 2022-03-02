@@ -15,6 +15,14 @@ export function AuthProvider({ children }) {
         return auth.signInWithEmailAndPassword(email,password)
     }
 
+    function logout(){
+        return auth.signOut()
+    }
+
+    function recover_password(email){
+        return auth.sendPasswordResetEmail(email)
+    }
+
     useEffect(()=>{
         const unsubscribe = auth.onAuthStateChanged(user=>{
             setLoggedUser(user)
@@ -26,7 +34,9 @@ export function AuthProvider({ children }) {
 
     const x = {
         loggedUser,
-        login
+        login,
+        logout,
+        recover_password
     }
   return (
     <AuthContext.Provider value={x}>
