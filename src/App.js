@@ -1,24 +1,22 @@
 import './App.css';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar'
 import Login from './components/Login';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
-    
       <>
+      <AuthProvider>
       <Router>
-         <AuthProvider>
            <Routes>
-              <Route exact path="/" component={Navbar}/>
-              <Route path="/login" component={Login} />
+              <Route exact path="/" element={<Navbar/>}/>
+              <Route path="/login" element={<Login/>} />
            </Routes>
-         </AuthProvider>
       </Router>
-      
+      </AuthProvider>
     </>
-  );
+  )
 }
 
 export default App;
