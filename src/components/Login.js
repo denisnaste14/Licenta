@@ -14,6 +14,15 @@ function Login() {
   const { login } = useAuth()
   const navigate = useNavigate();
 
+  function displayerror() {
+    if(error!=='')
+    {
+      return <><FontAwesomeIcon icon='triangle-exclamation' opacity='0.75'/> {error}</>
+       
+    }
+    return ""
+  }
+
 
   const login_action = async e =>{
     e.preventDefault()
@@ -38,7 +47,7 @@ function Login() {
                     <p className='login-title-text'>Log In</p>
                 </div>
                 <div className='login-bad-credentials'>
-                  {error}
+                  {displayerror()}
                 </div>
                 <div className='login-form'>
                   <form onSubmit={login_action}>

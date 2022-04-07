@@ -39,7 +39,11 @@
 }
 
 .login-bad-credentials{
-    height: 10%;
+    color: red;
+    padding-left: calc(19px + 1vw);
+    padding-top: 2px;
+    font-size: calc(12px + 0.3vw + 0.4vh);
+    height: 9%;
 }
 
 .login-form{
@@ -81,7 +85,7 @@
 
 .login-forgot-password{
     height: 10%;
-    margin-top: 12px;
+    margin-top: 11px;
     text-align: center;
     font-size: calc(7px + 0.3vw + 0.4vh);
     font-style: italic;

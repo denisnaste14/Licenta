@@ -11,6 +11,15 @@ export default function ForgotPassword() {
   const [error,setError] = useState('')
   const { recover_password } = useAuth()
 
+  function displayerror() {
+    if(error!='')
+    {
+      return <><FontAwesomeIcon icon='triangle-exclamation' opacity='0.75'/> {error}</>
+       
+    }
+    return ""
+  }
+
   const forgot_password_action = async e =>{
     e.preventDefault()
     try{
@@ -32,7 +41,7 @@ export default function ForgotPassword() {
             <p className='fp-title-text'>Password recovery</p>
           </div>
           <div className='fp-bad-credentials'>
-            {error}
+            {displayerror()}
           </div>
           <div className='fp-form'>
             <form onSubmit={forgot_password_action}>

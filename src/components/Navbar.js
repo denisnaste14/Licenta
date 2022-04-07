@@ -42,7 +42,7 @@ function Navbar() {
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li className='nav-item'>
-                        <Link to='/' className='nav-link' onClick={()=>setClick(false)}>
+                        <Link to='/home' className='nav-link' onClick={()=>setClick(false)}>
                             Home
                         </Link>
                     </li>

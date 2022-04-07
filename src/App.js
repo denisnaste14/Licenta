@@ -5,6 +5,7 @@ import ForgotPassword from './components/ForgotPassword'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
 import PrivateRoute from './components/PrivateRoute'; 
+import Home from './views/Home';
 function App() {
   return (
       <>
@@ -15,6 +16,7 @@ function App() {
               <Route path="/forgot-password" element={<ForgotPassword/>}/>
               <Route element={<PrivateRoute/>}>
                   <Route path="/" element={<Navbar/>}/>
+                  <Route path='/home' element={<Home/>}/>
               </Route>
            </Routes>
       </Router>
