@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import "./StylesCss/NewsCardLeft.css"
+import "./StylesCss/NewsCardRight.css"
 export default function (props) {
   const [showMore, setShowMore] = useState(false);
   var data = new Date (props.newsCard.dateTime);
   var d = data.toDateString() + " at " + data.toLocaleTimeString();
-    return (
+  return (
     !showMore ?
-      <div className='news-card-container'>
+      <div className='news-card-container-right'>
         <div className='news-card-img'>
           <img src={props.newsCard.imgSrc}>
           </img>

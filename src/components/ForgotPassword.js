@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../components/FontawsomeIcons/Icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './StylesCss/ForgotPassword.css'
@@ -12,7 +12,7 @@ export default function ForgotPassword() {
   const { recover_password } = useAuth()
 
   function displayerror() {
-    if(error!='')
+    if(error!=='')
     {
       return <><FontAwesomeIcon icon='triangle-exclamation' opacity='0.75'/> {error}</>
        

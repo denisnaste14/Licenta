@@ -18,7 +18,6 @@ function Login() {
     if(error!=='')
     {
       return <><FontAwesomeIcon icon='triangle-exclamation' opacity='0.75'/> {error}</>
-       
     }
     return ""
   }

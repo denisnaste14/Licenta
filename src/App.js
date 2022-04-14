@@ -5,7 +5,7 @@ import ForgotPassword from './components/ForgotPassword'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
 import PrivateRoute from './components/PrivateRoute'; 
-import Home from './views/Home';
+import Home from './views/Home.js';
 function App() {
   return (
       <>

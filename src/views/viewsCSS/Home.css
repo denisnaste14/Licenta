@@ -1,7 +1,36 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
 .home-body{
-    margin-left: 45px;
-    margin-right: 45px;
-    margin-top: 30px;
-    min-height: 75vh;
+    margin: 25px 45px;
+    display: flex;
+    flex-direction: column;
+    gap:calc(2vw + 4vh + 10px);
 }
+
+.select-sort-news-container{
+    width: 81%;
+    min-width: 600px;
+    margin: 25px auto 0 auto;
+    text-align: right;
+    font-size: calc(10px + 0.4vw + 0.9vh);
+    font-weight: 600;
+    color:#333;
+}
+
+.select-sort-news{
+    color:#333;
+    font-family: 'Manrope', sans-serif;
+    cursor: pointer;
+    width: auto;
+    font-size: calc(10px + 0.4vw + 0.9vh);
+    font-weight: 600;
+    border-radius: 3px;
+}
+
+.select-sort-news:hover{
+    background: #454545;
+    color: #ddd;
+}
+
+
+
+
