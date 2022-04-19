@@ -3,21 +3,24 @@ import Navbar from '../components/Navbar'
 import NewsCardLeft from '../components/NewsCardLeft'
 import NewsCardRight from '../components/NewsCardRight'
 import { db } from '../utils/firebase.js'
-import firebase from 'firebase/compat/app'
 import '../components/FontawsomeIcons/Icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import "./viewsCSS/Home.css"
+import {useAuth} from '../context/AuthContext.js'
+
 function Home() {
   const [news, setNews] = useState([]);
   const [ascending, setAscending] = useState(false);
+  const {loggedUser} = useAuth()
+  
   useEffect(() => {
     db.collection('news').onSnapshot(snapshot => {
       setNews(snapshot.docs.map(doc => ({ id: doc.id, imgSrc: doc.data().imgSrc, text: doc.data().text, dateTime: doc.data().dateTime.toDate() })))
     });
   }, [])
 
-  
   function displayNews() {
+    console.log(loggedUser)
     var items = [];
     news.forEach((x, index) => {
       if (index % 2 === 0) {
@@ -44,11 +47,6 @@ function Home() {
     return displayNews();
   }
 
-  news.forEach(x => {
-    console.log(firebase.firestore.Timestamp.fromDate(x.dateTime).toDate());
-    console.log(x.text);
-    console.log(x.imgSrc);
-  });
   return (
     <>
       <Navbar />

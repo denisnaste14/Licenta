@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./StylesCss/NewsCardLeft.css"
-export default function (props) {
+export default function NewsCardLeft(props) {
   const [showMore, setShowMore] = useState(false);
   var data = new Date (props.newsCard.dateTime);
   var d = data.toDateString() + " at " + data.toLocaleTimeString();
@@ -8,7 +8,7 @@ export default function (props) {
     !showMore ?
       <div className='news-card-container'>
         <div className='news-card-img'>
-          <img src={props.newsCard.imgSrc}>
+          <img src={props.newsCard.imgSrc} alt='News'>
           </img>
         </div>
         <div className='news-card-content'>

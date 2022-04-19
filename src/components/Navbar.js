@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './StylesCss/Navbar.css'
 
+toast.configure()
 function Navbar() {
     const [click,setClick]=useState(false);
     const [button,setButton]=useState(true);
@@ -14,12 +17,16 @@ function Navbar() {
         setClick(false)
         try{
             await logout()
+            toast.success("Logged out succesfuly!", {position: toast.POSITION.TOP_CENTER, autoClose: 2000})
         }catch{
-            setError('Failed to log out')
+            setError('Failed to log out!')
+            toast.error(error, {position: toast.POSITION.TOP_CENTER, autoClose: 2000})
         }
     }
 
     const showButton =()=>{
+        console.log(loggedUser)
+        console.log(button)
         if(window.innerWidth<900){
             setButton(false);
         }
