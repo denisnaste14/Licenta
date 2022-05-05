@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { auth } from '../utils/firebase';
+import { auth, db } from '../utils/firebase';
 
 const AuthContext = React.createContext();
 
@@ -20,7 +20,14 @@ export function AuthProvider({ children }) {
     }
 
     function signup(email,password){
-        return auth.createUserWithEmailAndPassword(email,password)
+        return auth.createUserWithEmailAndPassword(email,password).then(x =>{
+            return db.collection('user').doc(x.user.uid).set({
+                nume:"",
+                bio:"",
+                imgSrc:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+                admin:false,
+            })
+        });
     }
 
     function recover_password(email){

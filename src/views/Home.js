@@ -9,6 +9,7 @@ import "./viewsCSS/Home.css"
 import {useAuth} from '../context/AuthContext.js'
 
 function Home() {
+  const [myuser,setMyuser] = useState(false);
   const [news, setNews] = useState([]);
   const [ascending, setAscending] = useState(false);
   const {loggedUser} = useAuth()
@@ -17,10 +18,13 @@ function Home() {
     db.collection('news').onSnapshot(snapshot => {
       setNews(snapshot.docs.map(doc => ({ id: doc.id, imgSrc: doc.data().imgSrc, text: doc.data().text, dateTime: doc.data().dateTime.toDate() })))
     });
-  }, [])
+    const subscriber = db.collection('user').doc(loggedUser['uid']).onSnapshot( snapshot => {
+      setMyuser(snapshot.data());
+    });
+    return () => subscriber();
+  }, [loggedUser,myuser])
 
   function displayNews() {
-    console.log(loggedUser)
     var items = [];
     news.forEach((x, index) => {
       if (index % 2 === 0) {

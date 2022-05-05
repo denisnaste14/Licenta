@@ -1,19 +1,37 @@
 import React, {useState } from 'react'
 import '../components/FontawsomeIcons/Icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import "./StylesCss/Signup.css"
+import { toast } from 'react-toastify';
 
 export default function Signup() {
   const [email,setEmail] = useState()
   const [password,setPassword] = useState()
+  const [confPassword,setConfPassword] = useState()
   const [error,setError] = useState('')
   const [loading,setLoading] = useState(false)
   const { signup } = useAuth()
+  const navigate = useNavigate()
 
   const signup_action = async e =>{
     e.preventDefault()
+    if(password !== confPassword){
+      setError("Password and Confirm Password fields must be the same!")
+      return;
+    }
+    try{
+      setError('')
+      setLoading(true)
+      await signup(email,password);
+      navigate('/login')
+      toast.success("Account created sucessfully!", {position: toast.POSITION.TOP_CENTER, autoClose: 2000})
+    }catch{
+      setError("Failed to sign up!")
+    }
+    setLoading(false)
+    
   }
 
   return (
@@ -41,17 +59,17 @@ export default function Signup() {
               </div>
               <div className='signup-group'>
                 <FontAwesomeIcon icon='lock' opacity='0.75' />
-                <label for="password" className='signup-label'> Confirm password:</label><br />
-                <input className='signup-input' type="password" id="password" name="password" onChange={e => setPassword(e.target.value)} /><br />
+                <label for="confirm-password" className='signup-label'> Confirm password:</label><br />
+                <input className='signup-input' type="password" id="confirm-password" name="confirm-password" onChange={e => setConfPassword(e.target.value)} /><br />
               </div>
               <div className='signup-submit-btn'>
-                <input type="submit" value="signup" id='signup-submit' disabled={loading} />
+                <input type="submit" value="Register" id='signup-submit' disabled={loading} />
               </div>
             </form>
-            <div className='signup-forgot-password'>
-              <Link to='/forgot-password' className='signup-forgot-password'>Forgot password?</Link>
-            </div>
           </div>
+        </div>
+        <div className='signup-forgot-password'>
+              <Link to='/login' className='signup-forgot-password'>Already have an account?</Link>
         </div>
       </div>
 

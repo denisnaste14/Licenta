@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
 .signup{
-    align-items:flex-end;
     display:flex;
+    flex-direction: column;
     position: absolute;
     width: 32vw;
-    height: 56vh;
+    height: 58vh;
     min-width: 320px;
     min-height: 520px;
     top:50%;
@@ -87,14 +87,15 @@
     height: 10%;
     margin-top: 11px;
     text-align: center;
-    font-size: calc(7px + 0.3vw + 0.4vh);
-    font-style: italic;
+    font-size: calc(9px + 0.3vw + 0.4vh);
+    text-decoration: none;
+    color: #343434;
+    font-weight: 500;
     text-decoration: none;
 }
 
 .signup-forgot-password:hover{
     color:red;
-    cursor: pointer;
 }
 
 

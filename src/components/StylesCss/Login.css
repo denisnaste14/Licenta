@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
 .login{
-    align-items:flex-end;
     display:flex;
+    flex-direction: column;
     position: absolute;
     width: 28vw;
     height: 48vh;
@@ -22,8 +22,7 @@
 }
 
 .login-title{
-    font-family: 'Manrope', sans-seri
-    f;
+    font-family: 'Manrope', sans-serif;
     text-align: center;
     width: 100%;
     height: 30%;
@@ -98,6 +97,25 @@
     cursor: pointer;
 }
 
+.login-sign-up-space{
+    display: block;
+    height: 10px;
+}
 
+.login-to-sign-up{
+    width: 28vw;
+    text-align: center;
+    margin-top: 16px;
+}
 
+.login-to-sign-up-link:hover{
+    color:red;
+}
+
+.login-to-sign-up-link{
+    font-size: calc(9px + 0.3vw + 0.4vh);
+    color: #343434;
+    font-weight: 500;
+    text-decoration: none;
+}
 
