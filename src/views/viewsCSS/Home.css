@@ -3,17 +3,46 @@
     margin: 25px 45px;
     display: flex;
     flex-direction: column;
-    gap:calc(2vw + 4vh + 10px);
+    gap:calc(2vw + 3vh + 10px);
 }
 
 .select-sort-news-container{
+    display: flex;
+    margin: 25px auto 0 auto;
     width: 81%;
     min-width: 600px;
-    margin: 25px auto 0 auto;
     text-align: right;
     font-size: calc(10px + 0.4vw + 0.9vh);
     font-weight: 600;
     color:#333;
+}
+
+.select-sort-news-container button:first-child,
+.select-sort-news-container button:nth-child(2)
+{
+    font-family: 'Manrope', sans-serif;
+    color:#333;
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 3px;
+    margin-right: calc(10px + 0.5vw + 1vh);
+}
+
+.select-sort-news-container button:first-child:hover,
+.select-sort-news-container button:nth-child(2):hover
+{
+    cursor: pointer;
+    background: #454545;
+    color: #ddd;
+}
+
+.select-sort-news-container div:last-child{
+    margin-left: auto;
+}
+
+.news-manage-button{
+    font-size: calc(6px + 0.4vw + 0.9vh);
+    font-weight: 600;
 }
 
 .select-sort-news{
@@ -21,7 +50,7 @@
     font-family: 'Manrope', sans-serif;
     cursor: pointer;
     width: auto;
-    font-size: calc(10px + 0.4vw + 0.9vh);
+    font-size: calc(8px + 0.4vw + 0.9vh);
     font-weight: 600;
     border-radius: 3px;
 }
@@ -31,6 +60,50 @@
     color: #ddd;
 }
 
+.news-add-form-container{
+    width: 81%;
+    margin: 0 auto;
+    color:#333; 
+}
+
+.news-add-bad-fields{
+    color: red;
+    font-size: calc(11px + 0.3vw + 0.4vh);
+}
+
+.news-add-label{
+    font-family: 'Manrope', sans-serif;
+    font-size: calc(9px + 0.25vw + 0.45vh);
+    font-weight: 600;
+}
+
+.news-add-textarea{
+    border-radius: 3px;
+    min-width: calc(12vw + 300px);
+}
+
+.news-add-group{
+    margin: 9px 0;
+}
+
+.news-add-submit-btn{
+    margin-top: 15px;
+}
+#news-add-submit{
+    font-family: 'Manrope', sans-serif;
+    color:#333;
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 3px;
+    font-weight: 800;
+    font-size: calc(8px + 0.4vw + 0.9vh);
+}
+
+#news-add-submit:hover{
+    cursor: pointer;
+    background: #454545;
+    color: #ddd;
+}
 
 
 
