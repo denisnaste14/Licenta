@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
-import '../components/FontawsomeIcons/Icons'
+import '../utils/FontawsomeIcons/Icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './StylesCss/ForgotPassword.css'
 import { useAuth } from '../context/AuthContext'

@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import NewsCardLeft from '../components/NewsCardLeft'
 import NewsCardRight from '../components/NewsCardRight'
 import { db, storage } from '../utils/firebase.js'
-import '../components/FontawsomeIcons/Icons'
+import '../utils/FontawsomeIcons/Icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import "./viewsCSS/Home.css"
 import { useAuth } from '../context/AuthContext.js'
@@ -14,10 +14,10 @@ import { toast } from 'react-toastify'
 
 toast.configure()
 function Home() {
+  const { loggedUser } = useAuth()
   const [myuser, setMyuser] = useState(false)
   const [news, setNews] = useState([])
-  const [ascending, setAscending] = useState(false)
-  const { loggedUser } = useAuth()
+  const [ascending, setAscending] = useState(false)  
   const [deleteState, setDeleteState] = useState(false)
   const [addState, setAddState] = useState(false)
   const [error, setError] = useState('')
