@@ -54,8 +54,8 @@ function Navbar() {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/marketplace' className='nav-link' onClick={()=>setClick(false)}>
-                            Marketplace
+                        <Link to='/chat' className='nav-link' onClick={()=>setClick(false)}>
+                            Chat
                         </Link>
                     </li>
                     <li className='nav-item'>

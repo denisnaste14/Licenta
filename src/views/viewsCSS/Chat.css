@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
+.chat-container{
+    display: flex;
+    width: 70%;
+    height: 73vh;
+    padding: 10px;
+    margin: 6vh auto 4vh auto;
+    border: 1px dotted rgba(50, 50, 62, 0.17);
+    border-radius: 3px;
+    box-shadow: rgba(50, 50, 62, 0.4) 0px 50px 100px -30px, rgba(0, 0, 0, 0.35) 0px 30px 60px -30px;
+    overflow: hidden;
+}
+
+.chat-members-container{
+    display: flex;
+    width: 35%;
+    border-right: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to bottom, rgba(116, 58, 213, 0.3), rgba(73, 5, 190, 0.5));
+    overflow: auto;
+}

@@ -15,6 +15,7 @@ import { toast } from 'react-toastify'
 toast.configure()
 function Home() {
   const { loggedUser } = useAuth()
+  
   const [myuser, setMyuser] = useState(false)
   const [news, setNews] = useState([])
   const [ascending, setAscending] = useState(false)  
@@ -30,10 +31,18 @@ function Home() {
 
   useEffect(() => {
     db.collection('news').onSnapshot(snapshot => {
-      setNews(snapshot.docs.map(doc => ({ id: doc.id, imgSrc: doc.data().imgSrc, text: doc.data().text, dateTime: doc.data().dateTime.toDate() })))
+      setNews(snapshot.docs.map(doc => (
+        { 
+          id: doc.id, 
+          imgSrc: doc.data().imgSrc, 
+          text: doc.data().text, 
+          dateTime: doc.data().dateTime.toDate() 
+        })))
     });
     if (myuser === false) {
-      db.collection('user').doc(loggedUser['uid']).onSnapshot(snapshot => {
+      db.collection('user')
+      .doc(loggedUser['uid'])
+      .onSnapshot(snapshot => {
         setMyuser(snapshot.data());
       });
     }
@@ -116,11 +125,12 @@ function Home() {
   return (
     <>
       <Navbar />
+      {myuser &&
       <div className='home-body'>
         <div className='select-sort-news-container'>
           {
             myuser['admin'] &&
-            <button className='news-manage-button' onClick={() => { setAddState(!addState); setError('') }}><FontAwesomeIcon icon="square-plus" /> Add</button>
+            <button className='news-manage-button' onClick={() => { setAddState(!addState); setError('')}}><FontAwesomeIcon icon="square-plus" /> Add</button>
           }
           {
             myuser['admin'] &&
@@ -168,6 +178,7 @@ function Home() {
         }
         {ascending === true ? sortNewsAscending() : sortNewsDescending()}
       </div>
+      }
     </>
   )
 }

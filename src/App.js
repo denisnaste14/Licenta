@@ -7,6 +7,7 @@ import { AuthProvider } from './context/AuthContext'
 import PrivateRoute from './components/PrivateRoute'; 
 import Home from './views/Home.js';
 import Signup from './components/Signup';
+import Chat from './views/Chat';
 function App() {
   return (
       <>
@@ -19,6 +20,7 @@ function App() {
               <Route element={<PrivateRoute/>}>
                   <Route path="/" element={<Navbar/>}/>
                   <Route path='/home' element={<Home/>}/>
+                  <Route path='/chat' element={<Chat/>}/>
               </Route>
            </Routes>
       </Router>
