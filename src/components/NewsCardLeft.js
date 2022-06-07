@@ -38,7 +38,7 @@ export default function NewsCardLeft(props) {
           </div>
           <div className='news-card-content'>
             <div className='news-card-title'>
-              Anunt nou!
+              {props.newsCard.title}
             </div>
             <div className='news-card-text'>
               <p>
@@ -57,7 +57,7 @@ export default function NewsCardLeft(props) {
       :
       <div className='news-card-container-sm'>
         <div className='news-card-title'>
-          Anunt nou!
+          {props.newsCard.title}
         </div>
         <div className='news-card-text'>
           <p>

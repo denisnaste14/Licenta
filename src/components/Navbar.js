@@ -54,20 +54,25 @@ function Navbar() {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/chat' className='nav-link' onClick={()=>setClick(false)}>
-                            Chat
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/news' className='nav-link' onClick={()=>setClick(false)}>
-                            News
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
                         <Link to='/members' className='nav-link' onClick={()=>setClick(false)}>
                             Members
                         </Link>
                     </li>
+                    <li className='nav-item'>
+                        <Link to='/chat' className='nav-link' onClick={()=>setClick(false)}>
+                            Chat
+                        </Link>
+                    </li>         
+                    <li className='nav-item'>
+                        <Link to='/event-planner' className='nav-link' onClick={()=>setClick(false)}>
+                            Events
+                        </Link>
+                    </li>
+                    <li className='nav-item'>
+                        <Link to='/expense-report' className='nav-link' onClick={()=>setClick(false)}>
+                            Expenses
+                        </Link>
+                    </li>  
                     <li className='nav-item'>
                         <Link to='/login' className='nav-link' onClick={logout_action}>
                             Logout

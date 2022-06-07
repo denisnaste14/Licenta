@@ -10,14 +10,115 @@
     border-radius: 3px;
     box-shadow: rgba(50, 50, 62, 0.4) 0px 50px 100px -30px, rgba(0, 0, 0, 0.35) 0px 30px 60px -30px;
     overflow: hidden;
+    min-width: 540px;
+    min-height: 300px;
 }
 
 .chat-members-container{
     display: flex;
+    flex-direction: column;
     width: 35%;
-    border-right: 10px solid;
+    border-right: 5px solid;
     border-image-slice: 1;
-    border-width: 5px;
     border-image-source: linear-gradient(to bottom, rgba(116, 58, 213, 0.3), rgba(73, 5, 190, 0.5));
     overflow: auto;
+
+}
+
+.chat-room-container{
+    width: 65%;
+    margin-left: 10px;
+    border: 1px dotted rgba(200, 200, 200, 0.7);
+    border-radius: 3px;
+}
+
+.chat-room-title{
+    font-family: 'Manrope', sans-serif;
+    color:#454545;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 5px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, rgba(116, 58, 213, 0.3), rgba(73, 5, 190, 0.5));
+    font-weight: 900;
+    font-size: calc(10px + 0.8vh + 0.4vw);
+}
+
+.chat-room-user-image{
+    object-fit: cover;
+    height: 10vh;
+    width: auto;
+    margin-right: 1vw;
+    border-radius: 3px;
+}
+
+.chat-room-content{
+    margin-top: 1vh;
+    border-radius: 3px;
+    height: calc(77% - 1vh - 7px);
+    background-image: linear-gradient(15deg, rgba(116, 58, 213, 0.03), rgba(73, 5, 190, 0.14),rgba(116, 58, 213, 0.03), rgba(73, 5, 190, 0.14));
+    overflow-y: auto;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.chat-room-send-form-container{
+    height: 8%;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chat-room-send-input{
+    height: 100%;
+}
+
+.chat-room-send-form-container form{
+    width: 100%;
+    display: flex;
+}
+
+.chat-room-send-form-container textarea{
+    resize: none;
+    width: 85%;
+    height: 5.6vh;
+    border: none;
+    outline: none;
+    border-bottom: 1px dotted rgba(50, 50, 62, 0.17);
+    border-top: 1px dotted rgba(50, 50, 62, 0.17);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+
+.chat-room-send-form-container button{
+    width: 15%;
+    font-size: calc(10px + 0.8vh + 0.4vw);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    background-color: white;
+    border: none;
+    border-bottom-right-radius: 3px;
+    border-top: 1px dotted rgba(50, 50, 62, 0.17);
+    border-right: 1px dotted rgba(50, 50, 62, 0.01);
+    border-bottom: 1px dotted rgba(50, 50, 62, 0.17);
+    border-left: 1px dotted rgba(50, 50, 62, 0.47);
+}
+
+.chat-room-send-form-container button:hover{
+    border-right: 1px dotted rgba(50, 50, 62, 0.47);
+    background-image: linear-gradient(15deg, rgba(116, 58, 213, 0.03), rgba(73, 5, 190, 0.14),rgba(116, 58, 213, 0.03), rgba(73, 5, 190, 0.14));
+}
+
+.chat-room-no-user-choosen{
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    width: 65%;
+    font-size: calc(10px + 0.8vh + 0.4vw);
+    font-family: 'Manrope', sans-serif;
 }

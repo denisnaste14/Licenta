@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
+
+.message-container-wrapper{
+    width: 100%;
+    display: flex;
+}
+
+.message-container{
+    display: flex;
+    height: fit-content;
+    justify-content: space-between;
+    padding: 2px;   
+    background-color: white;
+    border: 1px solid black;
+    min-height: 65px;
+    width: fit-content;
+    max-width: 55%;
+    min-width: 15%;
+    border-radius: 6px;
+    margin: 1vh 1vw;
+    opacity: 0.9;
+}
+
+.message-image-wrapper{
+    margin: 5px;
+}
+
+.message-image{
+    object-fit: cover;
+    height: 6vh;
+    width: auto;
+}
+
+.message-name-text{
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.message-name{
+    font-family: 'Manrope', sans-serif;
+    margin-top: 5px;
+    font-weight: bolder;
+    font-size: calc(4px + 0.45vh + 0.25vw);
+    text-decoration: underline;
+    text-decoration-style:dotted;
+    text-decoration-color: rgba(0, 0, 0, 0.75);
+}
+
+.message-text{
+    color:#333;
+    font-size: calc(6px + 0.5vh + 0.25vw);
+    height: fit-content;
+    display: block;
+    margin: 3px 5px 5px 0;
+    font-family: 'Manrope', sans-serif;
+}
+
+.mesage-date-display{
+    font-family: 'Manrope', sans-serif;
+    font-size: calc(3px + 0.4vh + 0.2vw);
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+.message-container-wrapper-sent{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.message-container-sent{
+    display: flex;
+    flex-direction: row-reverse;
+    height: fit-content;
+    justify-content: space-between;
+    padding: 2px;   
+    background-color: white;
+    border: 1px solid black;
+    min-height: 65px;
+    width: fit-content;
+    max-width: 55%;
+    min-width: 15%;
+    border-radius: 6px;
+    margin: 1vh 1vw;
+    opacity: 1;
+}

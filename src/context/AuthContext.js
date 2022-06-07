@@ -20,9 +20,12 @@ export function AuthProvider({ children }) {
     }
 
     function signup(email,password){
+        var emailArray=email.split('@');
+        var emailString=emailArray[0];
+        console.log(emailString);
         return auth.createUserWithEmailAndPassword(email,password).then(x =>{
             return db.collection('user').doc(x.user.uid).set({
-                nume:"",
+                name:emailString,
                 bio:"",
                 imgSrc:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
                 admin:false,

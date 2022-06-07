@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../components/Navbar'
 import NewsCardLeft from '../components/NewsCardLeft'
 import NewsCardRight from '../components/NewsCardRight'
 import { db, storage } from '../utils/firebase.js'
@@ -26,6 +25,7 @@ function Home() {
   //news add states
   const [text, setText] = useState('')
   const [imgSrc, setImgSrc] = useState('')
+  const [title, setTitle]=useState('')
   const [dateTime, setDateTime] = useState(new Date())
   const [file, setFile] = useState(false)
 
@@ -34,6 +34,7 @@ function Home() {
       setNews(snapshot.docs.map(doc => (
         { 
           id: doc.id, 
+          title: doc.data().title,
           imgSrc: doc.data().imgSrc, 
           text: doc.data().text, 
           dateTime: doc.data().dateTime.toDate() 
@@ -85,6 +86,7 @@ function Home() {
 
     if (imgSrc !== '') {
       const newsData = {
+        title:title,
         text: text,
         imgSrc: imgSrc,
         dateTime: Timestamp.fromDate(dateTime)
@@ -106,6 +108,7 @@ function Home() {
         () => {
           storage.ref("images").child(file.name).getDownloadURL().then(url => {
             const newsData = {
+              title: title,
               text: text,
               imgSrc: url,
               dateTime: Timestamp.fromDate(dateTime)
@@ -117,14 +120,12 @@ function Home() {
               toast.error("Erorr adding announcement!", { position: toast.POSITION.TOP_CENTER, autoClose: 1300 })
             })
           });
-
         }
       )
     }
   }
   return (
     <>
-      <Navbar />
       {myuser &&
       <div className='home-body'>
         <div className='select-sort-news-container'>
@@ -152,6 +153,10 @@ function Home() {
               {error !== '' ? <><FontAwesomeIcon icon='triangle-exclamation' opacity='0.75' /> {error}</> : ""}
             </div>
             <form onSubmit={(e) => handleAdd(e)}>
+            <div className='news-add-group'>
+                <label for="title" className='news-add-label'> Title:</label><br />
+                <input className='news-add-input' type="text" onChange={e => setTitle(e.target.value)} required/>              
+              </div>
               <div className='news-add-group'>
                 <label for="text" className='news-add-label'> Text:</label><br />
                 <textarea rows="10" className='news-add-textarea' type="text" onChange={e => { setText(e.target.value) }} required /><br />
