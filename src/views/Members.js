@@ -14,7 +14,8 @@ export default function Members() {
   const [nameField, setNameField] = useState('')
   const [aboutField, setAboutField] = useState('')
   const [imgSrc, setImgSrc] = useState('')
-  const [newImgText,setNewImgText]=useState('')
+  const [newImgText, setNewImgText] = useState('')
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
     if (currentUser === false) {
@@ -30,34 +31,35 @@ export default function Members() {
           });
         });
     }
-  }, [])
 
-  function profile_picture_change(e) {
-    if(e.target.files[0]){
-      const newFile= e.target.files[0];
-      console.log(newFile)
-      setFile(newFile);
-    } 
-    
-  
-  }
+    db.collection('user').onSnapshot(snapshot => {
+      setUsers(snapshot.docs.map(doc => (
+        {
+          id: doc.id,
+          imgSrc: doc.data().imgSrc,
+          bio: doc.data().bio,
+          admin: doc.data().admin,
+          name: doc.data().name
+        })))
+    });
+  }, [currentUser, users])
 
 
   function handleUpdateCurrentProfile(e) {
     e.preventDefault()
-    if(aboutField==='')
-      setAboutField(currentUser['bio'])
-    if(nameField==='')
-      setNameField(currentUser['name'])
+    var name, about;
+    console.log(aboutField)
+    if (aboutField === '')
+      about = currentUser['bio']
+    else
+      about = aboutField;
+    if (nameField === '')
+      name = currentUser['name'];
+    else
+      name = nameField;
 
-    const newProfile={
-      admin:currentUser['admin'],
-      bio: aboutField,
-      name: nameField
-    }
 
     if (file) {
-      console.log(file)
       const upload = storage.ref(`profilePic/${file.name}`).put(file);
       upload.on("state_changed",
         snapshot => { },
@@ -66,24 +68,87 @@ export default function Members() {
           return
         },
         () => {
-          storage.ref("profilePic/").child(file.name).getDownloadURL().then(url => {
-            const newProfile={
-              admin:currentUser['admin'],
-              bio: aboutField,
-              name: nameField,
-              imgSrc:url
-            }
-            db.collection('user').doc(currentUser.uid).update(newProfile);
-            setEditState(!editState)
-            setFile(null)
-            setImgSrc(url)
-          });
-          console.log(imgSrc)
+          storage.ref("profilePic/").child(file.name)
+            .getDownloadURL().then(url => {
+              const newProfile = {
+                admin: currentUser['admin'],
+                bio: about,
+                name: name,
+                imgSrc: url
+              }
+              db.collection('user').doc(currentUser['id'])
+                .update(newProfile);
+              setEditState(!editState)
+              setFile(null); setNewImgText(''); setImgSrc(url);
+              setAboutField(''); setNameField('')
+            });
         }
       )
     }
-    console.log(newProfile)
+    else {
+      const newProfile = {
+        admin: currentUser['admin'],
+        bio: about,
+        name: name,
+        imgSrc: currentUser['imgSrc']
+      }
+      db.collection('user').doc(currentUser['id']).update(newProfile);
+      setEditState(!editState)
+      setAboutField(''); setNameField('')
+    }
   }
+
+  function makeAdminHandler(e,x){
+    e.preventDefault();
+    const newMember ={
+      admin: true,
+      bio: x['bio'],
+      name: x['name'],
+      imgSrc: x['imgSrc'],
+    }
+    db.collection('user').doc(x['id']).update(newMember);
+  }
+
+  function displayMembers() {
+    var userComp = []
+    users.forEach((x) => {
+      if (x['id'] !== currentUser['id'])
+        userComp.push(<>
+          <div className='member-wrapper'>
+            <div className='member-container'>
+              <div className='member-image-wrapper'>
+                <img className='member-image' src={x['imgSrc']} alt='user picture'></img>
+              </div>
+              <div className='member-content'>
+                {
+                  x['admin'] ?
+                  <p className='profile-admin'>Administrator</p>
+                  :
+                  <div className='member-space'></div>
+                }
+                <p className='member-name'>Name: {x['name']}</p>
+                {
+                  x['bio']!==""?
+                  <p className='member-about'>About: {x['bio']}</p>
+                  :
+                  <p className='member-about'>About: There is no information yet</p>
+                }
+                {
+                  currentUser['admin']===true && x['admin']===false
+                  &&
+                  <div className='member-btn-wrapper'>
+                    <button className='member-btn' onClick={(e)=>{makeAdminHandler(e, x)}}> Make Admin</button>
+                  </div>
+                }
+                
+              </div>
+            </div>
+          </div>
+        </>)
+    })
+    return userComp;
+  }
+
 
   return (
     <>
@@ -91,13 +156,19 @@ export default function Members() {
         <div className='current-member-container'>
           <div className='current-member-image-wrapper'>
             <img className='current-member-image' src={imgSrc === '' ? currentUser['imgSrc'] : imgSrc} />
-            <input id='profile-pic-change' className='input-change-profile-img' type="file" onChange={e => {setFile(e.target.files[0]); setNewImgText(e.target.files[0].name)}} />
-            <label id='profile-pic-change-label' for='profile-pic-change' title='Choose an image'>
-              <FontAwesomeIcon icon="camera-retro" />
-              <div className='profile-pic-changed-fileName'>
-                {newImgText}
-              </div>
-            </label>
+            {
+              !editState &&
+              <>
+                <input id='profile-pic-change' className='input-change-profile-img' type="file" onChange={e => { setFile(e.target.files[0]); setNewImgText(e.target.files[0].name) }} />
+                <label id='profile-pic-change-label' for='profile-pic-change' title='Choose an image'>
+                  <FontAwesomeIcon icon="camera-retro" />
+                  <div className='profile-pic-changed-fileName'>
+                    {newImgText}
+                  </div>
+                </label>
+
+              </>
+            }
           </div>
           <div className='current-member-content'>
             {
@@ -110,15 +181,15 @@ export default function Members() {
                 onChange={e => setNameField(e.target.value)} />
               <label className='profile-labels'>About:</label>
               {
-                currentUser['bio']!=='' ?     
+                currentUser['bio'] !== '' ?
                   <textarea className='current-member-textarea' defaultValue={currentUser['bio']} disabled={editState}
-                    onChange={e => setAboutField(e.target.value)} />  
+                    onChange={e => setAboutField(e.target.value)} />
                   :
                   <textarea className='current-member-textarea' defaultValue="There is no information yet" disabled={editState}
                     onChange={e => setAboutField(e.target.value)} />
               }
               <div className='current-member-edit'>
-                <button onClick={() => setEditState(!editState)} title='Edit your profile'>
+                <button onClick={() => setEditState(!editState)} title='Edit your profile' type='button'>
                   <FontAwesomeIcon icon="edit" />
                 </button>
                 {
@@ -131,6 +202,10 @@ export default function Members() {
             </form>
 
           </div>
+        </div>
+
+        <div className='members-list-container'>
+          {displayMembers()}
         </div>
       </div>
     </>

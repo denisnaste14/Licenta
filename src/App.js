@@ -9,6 +9,8 @@ import Home from './views/Home.js';
 import Signup from './components/Signup';
 import Chat from './views/Chat';
 import Members from './views/Members';
+import EventPlanner from './views/EventPlanner';
+import ExpenseReport from './views/ExpenseReport';
 function App() {
   return (
     <>
@@ -23,6 +25,8 @@ function App() {
               <Route path='/home' element={<Home />} />
               <Route path='/chat' element={<Chat />} />
               <Route path='/members' element={<Members />} />
+              <Route path='/event-planner' element={<EventPlanner />}/>
+              <Route path='/expense-report' element={<ExpenseReport />}/>
             </Route>
           </Routes>
         </Router>

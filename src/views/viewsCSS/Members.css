@@ -15,7 +15,7 @@
     border-radius: 6px;
     padding: 8px;
     border: 1px dashed rgba(50, 50, 62, 0.17);
-    box-shadow: rgba(50, 50, 62, 0.15) 0px 50px 100px -25px, rgba(0, 0, 0, 0.2) 0px 30px 60px -30px;
+    box-shadow: rgba(50, 50, 62, 0.1) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .current-member-image-wrapper{
@@ -79,7 +79,7 @@
 .profile-admin{
     width: fit-content;
     padding: 3px;
-    border: 1px solid black;
+    border: 1px solid darkgray;
     border-radius: 6px;
     background-image: linear-gradient(10deg, rgba(116, 58, 213, 0.1), rgba(73, 5, 190, 0.19),rgba(116, 58, 213, 0.1), rgba(73, 5, 190, 0.19));
     margin: 0.9vh 0;
@@ -106,5 +106,85 @@
     display: flex;
     flex-direction: column;
 }
+
+.members-list-container{
+    margin: 3vh 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 50%);
+}
+
+
+.member-wrapper{
+    margin: 3vh 0.6vw;
+    width: 24vw;
+    height: 20vh;
+}
+
+.member-container{
+    margin-left: 2%;
+    height: 95%;
+    width: 90%;
+    padding: 8px;
+    border: 1px dashed rgba(50, 50, 62, 0.2);
+    border-radius: 6px;
+    box-shadow: rgba(50, 50, 62, 0.15) 0px 50px 100px -25px, rgba(0, 0, 0, 0.2) 0px 30px 60px -30px;
+    display: flex;
+    gap: 2px;
+    min-width: fit-content;
+    overflow-y: auto;
+    font-family: 'Manrope', sans-serif;
+}
+
+.member-image-wrapper{
+    margin: auto 5px;
+}
+
+.member-image{
+    height: 12vh;
+    border-radius: 3px;
+}
+
+.member-content{
+    display: flex;
+    flex-direction: column;
+    gap:1.5vh;
+    margin: 0.7vh 0.35vw;
+}
+
+.member-name{
+    margin: 0;
+    font-size: calc(8px + 0.5vh + 0.25vw);
+}
+
+.member-about{
+    margin: 0;
+    font-size: calc(8px + 0.5vh + 0.25vw);
+}
+
+.member-btn-wrapper{
+    margin-top: 0.3vh;
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: calc(8px + 0.5vh + 0.25vw);
+}
+
+.member-btn{
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid darkgray;
+}
+
+.member-btn:hover{
+    cursor: pointer;
+    background-image: linear-gradient(10deg, rgba(116, 58, 213, 0.1), rgba(73, 5, 190, 0.19),rgba(116, 58, 213, 0.1), rgba(73, 5, 190, 0.19));
+}
+
+
+
+.member-space{
+    height: 1em;
+}
+
+
 
 
