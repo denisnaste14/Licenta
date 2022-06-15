@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+.event-container{
+    margin: 10px auto;
+    border: 1px solid rgba(200, 200, 200, 0.4);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 3px;
+    width: 40vw;
+    height: 40vh;
+    min-height: 260px;
+    max-height: 340px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap:0.5%;
+    color:#333;
+    font-family: 'Manrope', sans-serif;
+    font-size: calc(7px + 0.2vw + 0.4vh);
+}
+
+.event-description{
+    height: 40%;
+    overflow: auto;
+    margin-left: 1.5vw;
+}
+
+.event-label{
+    margin-top: 1.5%;
+    color:#151515;
+    font-family: 'Manrope', sans-serif;
+    font-size: calc(10px + 0.2vw + 0.4vh);
+}
+
+.event-location,
+.event-date{
+    margin-left: 1.5vw;
+}
+
+.event-participants-containter{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1.5vw;
+}
+
+.event-participants{
+    font-size: calc(10px + 0.2vw + 0.4vh);
+    font-weight: 700;
+}
+
+.event-participate-btn{
+    font-family: 'Manrope', sans-serif;
+    color:#333;
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 3px;
+    margin-right: calc(10px + 0.5vw + 1vh);
+    font-weight: 600;
+}
+
+.event-participate-btn:hover{
+    cursor: pointer;
+    background: #454545;
+    color: #ddd;
+}
