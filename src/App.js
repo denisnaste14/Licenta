@@ -1,5 +1,4 @@
 import './App.css';
-import Navbar from './components/Navbar'
 import Login from './components/Login'
 import ForgotPassword from './components/ForgotPassword'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'

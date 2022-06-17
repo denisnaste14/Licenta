@@ -7,15 +7,10 @@ export default function Message(props) {
         " " + props.msg['dateTime'].getFullYear() + " at " + props.msg['dateTime'].getHours() +
         ":" + (props.msg['dateTime'].getMinutes() < 10 ? '0':'' )+ props.msg['dateTime'].getMinutes();
     var fromUser = false;
-    var toUser = false;
-    if (props.msg['from'] === props.currentUser['id']) {
+    if (props.msg['from'] === props.currentUser['id'])
         fromUser = props.currentUser;
-        toUser = props.choosenUser;
-    }
-    else {
+    else
         fromUser = props.choosenUser;
-        toUser = props.currentUser;
-    }
 
 
     return (
@@ -25,7 +20,7 @@ export default function Message(props) {
                     <div className='message-container-wrapper'>
                         <div className='message-container'>
                             <div className='message-image-wrapper'>
-                                <img className='message-image' src={fromUser['imgSrc']} />
+                                <img className='message-image' src={fromUser['imgSrc']} alt=''/>
                             </div>
                             <div className='message-name-text'>
                                 <div className='message-name'>
@@ -44,7 +39,7 @@ export default function Message(props) {
                     <div className='message-container-wrapper-sent'>
                         <div className='message-container-sent'>
                             <div className='message-image-wrapper'>
-                                <img className='message-image' src={fromUser['imgSrc']} />
+                                <img className='message-image' src={fromUser['imgSrc']} alt=''/>
                             </div>
                             <div className='message-name-text'>
                                 <div className='message-name'>

@@ -1,0 +1,95 @@
+
+.event-planner-page{
+    display: flex;
+    flex-direction: column;
+    margin: 5vh auto;
+    width: 80%;
+}
+
+.event-planner-admin-actions{
+    display: flex;
+    gap:1.8vw;
+    width: 80%;
+    margin: 0 auto 2.5vh auto;
+}
+
+.event-planner-admin-btn{
+    font-family: 'Manrope', sans-serif;
+    color:#333;
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 3px;
+    font-size: calc(7px + 0.4vw + 0.9vh);
+    font-weight: 600;
+    transition: 0.15s ease-in;
+}
+
+.event-planner-admin-btn:hover{
+    cursor: pointer;
+    background: #454545;
+    color: #ddd;
+}
+
+.edit-event-container{
+    margin:auto;
+    margin-top: 0.5vh;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 40vw;
+}
+
+.edit-event-btn{
+    font-family: 'Manrope', sans-serif;
+    color:rgb(23, 120, 26);
+    font-weight: 600;
+    background: transparent;
+    border: none;
+}
+
+.edit-event-btn:hover{
+    cursor: pointer;
+}
+
+
+/*
+    ADD FORM
+*/
+
+.event-planner-form-container{
+    width: 80%;
+    margin: 2vh auto;
+    color:#333;
+}
+
+.event-planner-textarea{
+    border-radius: 3px;
+    min-width: calc(12vw + 300px);
+}
+
+.event-planner-input{
+    width: 212px;
+}
+
+.event-planner-group{
+    margin: 1vh 0;
+    color:#151515;
+    font-family: 'Manrope', sans-serif;
+    font-size: calc(8px + 0.2vw + 0.4vh);
+}
+
+#event-planner-submit{
+    font-family: 'Manrope', sans-serif;
+    color:#333;
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 3px;
+    font-weight: 800;
+    font-size: calc(8px + 0.3vw + 0.6vh);
+    transition: 0.18s ease-in;
+}
+
+#event-planner-submit:hover{
+    cursor: pointer;
+    background: #454545;
+    color: #ddd;
+}

@@ -6,7 +6,7 @@ import ChatUser from '../components/ChatUser'
 import Message from '../components/Message'
 import '../utils/FontawsomeIcons/Icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { doc, Timestamp } from "firebase/firestore"
+import { Timestamp } from "firebase/firestore"
 
 export default function Chat() {
 
@@ -61,7 +61,7 @@ export default function Chat() {
       });
       emptySpan.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [userChoosen])
+  }, [userChoosen, currentUser, loggedUser])
 
   function displayChatUsers() {
     var chatUserComponents = []
@@ -98,7 +98,7 @@ export default function Chat() {
           userChoosen ?
             <div className='chat-room-container'>
               <div className='chat-room-title'>
-                <img className='chat-room-user-image' src={userChoosen['imgSrc']} />
+                <img className='chat-room-user-image' src={userChoosen['imgSrc']} alt=''/>
                 {userChoosen['name']}
               </div>
               <div className='chat-room-content'>

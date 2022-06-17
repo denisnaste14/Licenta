@@ -42,7 +42,7 @@ export default function Members() {
           name: doc.data().name
         })))
     });
-  }, [currentUser, users])
+  }, [currentUser, users, loggedUser])
 
 
   function handleUpdateCurrentProfile(e) {
@@ -117,7 +117,7 @@ export default function Members() {
           <div className='member-wrapper'>
             <div className='member-container'>
               <div className='member-image-wrapper'>
-                <img className='member-image' src={x['imgSrc']} alt='user picture'></img>
+                <img className='member-image' src={x['imgSrc']} alt=''/>
               </div>
               <div className='member-content'>
                 {
@@ -155,7 +155,7 @@ export default function Members() {
       <div className='members-page-container'>
         <div className='current-member-container'>
           <div className='current-member-image-wrapper'>
-            <img className='current-member-image' src={imgSrc === '' ? currentUser['imgSrc'] : imgSrc} />
+            <img className='current-member-image' src={imgSrc === '' ? currentUser['imgSrc'] : imgSrc} alt=''/>
             {
               !editState &&
               <>

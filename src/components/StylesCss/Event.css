@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
 .event-container{
-    margin: 10px auto;
+    margin: 0.5vh auto 3vh auto;
     border: 1px solid rgba(200, 200, 200, 0.4);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     border-radius: 3px;
@@ -41,6 +41,7 @@
     margin-left: 1.5vw;
 }
 
+
 .event-participants{
     font-size: calc(10px + 0.2vw + 0.4vh);
     font-weight: 700;
@@ -60,4 +61,24 @@
     cursor: pointer;
     background: #454545;
     color: #ddd;
+}
+
+.event-delete-btn-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.event-delete-btn{
+    font-family: 'Manrope', sans-serif;
+    color:rgb(210,10,10);
+    background-color: transparent;
+    border:none;
+    font-weight: 600;
+    width: fit-content;
+    margin-right: 1.5vw;
+}
+
+.event-delete-btn:hover{
+    cursor: pointer;
 }

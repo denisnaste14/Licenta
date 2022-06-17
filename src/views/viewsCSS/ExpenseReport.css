@@ -1,0 +1,25 @@
+.expense-report-page{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 5vh auto;
+    font-family: 'Manrope', sans-serif;
+    color:#333;
+    font-size: calc(8px + 0.4vw + 0.9vh);
+    font-weight: 600;
+}
+
+.expense-report-select{
+    color:#333;
+    font-family: 'Manrope', sans-serif;
+    cursor: pointer;
+    width: auto;
+    font-size: calc(7px + 0.4vw + 0.9vh);
+    font-weight: 600;
+    border-radius: 3px;
+}
+
+.expense-report-select:hover{
+    background: #454545;
+    color: #ddd;
+}
