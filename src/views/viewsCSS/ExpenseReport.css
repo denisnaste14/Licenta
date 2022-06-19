@@ -23,3 +23,86 @@
     background: #454545;
     color: #ddd;
 }
+
+.no-report{
+
+    margin: 10vh auto;
+}
+
+/*
+ ADD and Update
+*/
+
+.expense-add-or-update-container{
+    margin: 1vh 0 3vh 0;
+    display: flex;
+    gap: 2vw;
+}
+
+.report-add-btn{
+    font-family: 'Manrope', sans-serif;
+    color:#333;
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 3px;
+    font-size: calc(7px + 0.4vw + 0.9vh);
+    font-weight: 600;
+    transition: 0.15s ease-in;
+}
+
+.report-add-btn:hover{
+    cursor: pointer;
+    background: #454545;
+    color: #ddd;
+}
+
+.users-container{
+    text-align: center;
+    height: 50vh;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    border-right: 5px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to bottom, rgba(116, 58, 213, 0.3), rgba(73, 5, 190, 0.5));
+    overflow: auto;
+}
+
+.report-add-group{
+    display: flex;
+    gap: 0.8vw;
+    font-family: 'Manrope', sans-serif;
+    font-size: calc(5px + 0.4vw + 0.9vh);
+    margin: 1.4vh 0;
+}
+
+.report-add-label{
+    width: 30%;
+}
+
+.add-update-form{
+    font-family: 'Manrope', sans-serif;
+    font-size: calc(4px + 0.4vw + 0.9vh);
+}
+
+.report-submit-btn-wrapper{
+    margin-top: 4vh;
+}
+
+.report-submit-btn{
+    font-family: 'Manrope', sans-serif;
+    color:#333;
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 3px;
+    font-size: calc(5px + 0.4vw + 0.9vh);
+    font-weight: 600;
+    transition: 0.15s ease-in;
+}
+
+.report-submit-btn:hover{
+    cursor: pointer;
+    background: #454545;
+    color: #ddd;
+}

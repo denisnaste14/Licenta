@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
+.report-container{
+    margin: 10vh auto 5vh auto;
+    height: 50vh;
+    min-height: 240px;
+    width: 45vw;
+    min-width: 300px;
+    border: 1px solid rgba(200, 200, 200, 0.4);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 3px;
+    font-family: 'Manrope', sans-serif;
+    color:#333;
+}
+
+.report-title{
+    text-align: center;
+    font-size: calc(10px + 0.4vw + 0.8vh);
+}
+
+.report-date-made,
+.report-due-date{
+    text-align: center;
+    font-size: calc(4px + 0.4vw + 0.8vh);
+}
+
+.report-content{
+    margin: auto 0;
+}
+
+.report-group{
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 1vh;
+    margin-left: 3vw;
+    display: flex;
+}
+
+.report-label{
+    width: 50%;
+}
+
+
+.report-total-group{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+    margin-top: 4vh;
+    margin-left: 3vw;
+    display: flex;
+}

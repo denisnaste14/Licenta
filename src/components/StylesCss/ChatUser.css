@@ -2,6 +2,7 @@
 .chat-user-container{
     margin: 1.2vh auto;
     width: 65%;
+    min-width: fit-content;
     height: 7vh;
     padding: 7px;
     border-radius: 3px;

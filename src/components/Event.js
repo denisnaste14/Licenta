@@ -71,7 +71,7 @@ export default function Event(props) {
             {
                 props.deleteState &&
                 <div className='event-delete-btn-wrapper'>
-                    <button className='event-delete-btn' title='' onClick={(e) => handleDelete(e)}>[ Delete event ]</button>
+                    <button className='event-delete-btn' title='' onClick={(e) => handleDelete(e)}><FontAwesomeIcon icon='trash-can'/> [ Delete event ]</button>
                 </div>
             }
             <div className='event-label'> <FontAwesomeIcon icon='circle-info' /> Description:</div>

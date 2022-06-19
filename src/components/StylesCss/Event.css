@@ -55,6 +55,7 @@
     border-radius: 3px;
     margin-right: calc(10px + 0.5vw + 1vh);
     font-weight: 600;
+    transition: 0.15s ease-in;
 }
 
 .event-participate-btn:hover{
