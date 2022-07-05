@@ -25,6 +25,7 @@ export default function ExpenseReport() {
   const [userChoosen, setUserChoosen] = useState(false)
   const [reportChoosen, setReportChoosen] = useState()
   const [reportChoosenExist, setReportChoosenExist] = useState(false)
+  
 
   //Add states
   const [repId,setRepId] =useState('')
@@ -35,6 +36,7 @@ export default function ExpenseReport() {
   const [elect,setElect] = useState(0)
   const [repair,setRepair] = useState(0)
   const [remain,setRemain] = useState(0)
+  const [btnPushed,setBtnPushed] = useState(false)
 
 
   useEffect(() => {
@@ -191,6 +193,7 @@ export default function ExpenseReport() {
         toast.error("Erorr in modifying the report!", { position: toast.POSITION.TOP_CENTER, autoClose: 1300 })
       })
     }
+    setBtnPushed(false);
   }
 
   return (
@@ -218,7 +221,7 @@ export default function ExpenseReport() {
               :
               <p className='add-update-form'>Modify the last month expense report for {userChoosen['name']} </p>
             }
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form onSubmit={(e) => {setBtnPushed(true);handleSubmit(e)}}>
               <div className='report-add-group'>
                 <label className='report-add-label'> Data scadentă:</label>
                 <DateTimePicker onChange={setDueDate} value={dueDate} maxDetail="second" required={true}/>
@@ -246,9 +249,9 @@ export default function ExpenseReport() {
               <div className='report-submit-btn-wrapper'>
               {
                 !reportChoosenExist===true ?
-                <button type='submit' className='report-submit-btn'>Generate report</button>
+                <button type='submit' className='report-submit-btn' disabled={btnPushed}>Generate report</button>
                 :
-                <button type='submit' className='report-submit-btn'>Update report</button>
+                <button type='submit' className='report-submit-btn' disabled={btnPushed}>Update report</button>
               }
               </div>
             </form>
@@ -269,7 +272,7 @@ export default function ExpenseReport() {
         report.length !== 0 ?
           <Report report={report[0]}></Report>
           :
-          <div className='no-report'>There isn't any expense report for the month selected!</div>
+          <div className='no-report'>There is not any expense report for the selected month!</div>
       }
     </div>
   )

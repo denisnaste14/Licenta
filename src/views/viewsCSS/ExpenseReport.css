@@ -79,6 +79,7 @@
 
 .report-add-label{
     width: 30%;
+    min-width: fit-content;
 }
 
 .add-update-form{
